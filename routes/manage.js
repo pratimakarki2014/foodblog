@@ -13,7 +13,7 @@ router.get('/events/add', (req, res, next) => {
     res.render('add_event', {title: 'Create Event'});
 });
 
-router.get('/menu/add', (req, res, next) => {
+router.get('/menus/add', (req, res, next) => {
     res.render('add_menu', {title: 'Create Menu'});
 });
 

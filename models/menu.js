@@ -17,3 +17,7 @@ const Menu = module.exports = mongoose.model('Menu', menuSchema);
 module.exports.getMenus = function(callback, limit){
     Menu.find(callback).limit(limit).sort([['title', 'ascending']]);
 }
+
+module.exports.addMenu = function(menu, callback){
+    Menu.create(menu, callback);
+}

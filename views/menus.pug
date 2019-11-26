@@ -3,6 +3,6 @@ extends layout
 block content
     h1 #{title}
     ul
-       each menu, i in menus
-          li
-             a(href="#") #{menu.title}
+      each menu, i in menus
+        li
+          a(href='/events/menu/'+menu._id) #{menu.title}
