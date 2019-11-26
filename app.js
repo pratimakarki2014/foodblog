@@ -15,7 +15,7 @@ const app = express();
 const events = require('./routes/events');
 const index = require('./routes/index');
 const manage = require('./routes/manage');
-const menu = require('./routes/menus');
+const menus = require('./routes/menus');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -51,7 +51,7 @@ app.use(expressValidator({
 app.use('/', index);
 app.use('/events', events);
 app.use('/manage', manage);
-app.use('/menu', menu);
+app.use('/menus', menus);
 
 app.listen(port, () => {
     console.log(`Server started on ${port}`);
