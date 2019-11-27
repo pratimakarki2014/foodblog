@@ -21,3 +21,15 @@ module.exports.getMenus = function(callback, limit){
 module.exports.addMenu = function(menu, callback){
     Menu.create(menu, callback);
 }
+
+module.exports.getMenuById = function(id, callback){
+    Menu.findById(id, callback);
+}
+
+module.exports.updateMenu = function(query, update, options, callback){
+   Menu.findOneAndUpdate(query, update, options, callback);
+}
+
+module.exports.removeMenu = function(query, callback){
+    Menu.remove(query, callback);
+}

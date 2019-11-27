@@ -15,17 +15,41 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.post('/add', (req, res, next) => {
+router.post('/add', (req, res) => {
     let menu = new Menu();
     menu.title = req.body.title;
     menu.description = req.body.description;
     menu.ingredients = req.body.ingredients;
 
-    Menu.addMenu(menu, (err, menu) => {
+    Menu.addMenu(menu, (err) => {
        if(err){
            res.send(err);
        }
        res.redirect('/manage/menus');
+    });
+});
+
+router.post('/edit/:id', (req, res) => {
+    let menu = new Menu();
+    const query = {_id: req.params.id}
+    const update = {title: req.body.title, description: req.body.description, ingredients: req.body.ingredients}
+
+    Menu.updateMenu(query, update, {}, (err) => {
+        if(err){
+            res.send(err);
+        }
+        res.redirect('/manage/menus');
+    });
+});
+
+router.delete('/delete/:id', (req, res) => {
+    const query = {_id: req.params.id}
+
+    Menu.removeMenu(query, (err) => {
+        if(err){
+            res.send(err);
+        }
+        res.status(200);
     });
 });
 

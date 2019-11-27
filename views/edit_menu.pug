@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    .container
+       h1 #{title}
+       form(method='post', action='/menus/edit/'+menu._id)
+         .form-group
+           label Title:
+           input.form-control(name='title', type='text', value=menu.title)
+         .form-group
+           label Description:
+           textarea.form-control(name='description') #{menu.description}
+         .form-group
+           label Ingredients:
+           textarea.form-control(name='ingredients') #{menu.ingredients}
+         input.btn.btn-primary(type='submit', name='submit', value='Save')
+         a.btn.btn-warning(href='/manage/menus') Back
+         a.btn.btn-danger.menu-delete.pull-right(href='/manage/menus', data-cat-id=menu._id) Delete

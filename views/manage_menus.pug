@@ -1,4 +1,18 @@
 extends layout
 
 block content
-    h1 #{title}
+  .container
+    .row
+      .col-md-9
+        h1 #{title}
+      .col-md-3
+        a(class="btn btn-warning create-btn", href="/manage/menus/add") Add Menu
+    table(class='table table-striped')
+      tr
+        th menu Title
+        th
+      each menu, i in menus
+        tr
+          td #{menu.title}
+          td
+            a(class="btn btn-tiny btn-info" href='/manage/menus/edit/'+menu._id) Edit
